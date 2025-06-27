@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <title>Professional Web Development Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .navbar {
+            background-color: #29353C;
+            padding: 1rem 0;
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar-brand {
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-decoration: none;
+            margin-left: 1rem;
+        }
+        
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+        
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #AAC7D8;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #44576D, #29353C);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #768A96;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #AAC7D8;
+        }
+        
+        .services {
+            padding: 5rem 0;
+            background-color: #DFEBF6;
+        }
+        
+        .services h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #29353C;
+        }
+        
+        .row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+        }
+        
+        .card h3 {
+            color: #44576D;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .card p {
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+        
+        .pricing {
+            padding: 5rem 0;
+        }
+        
+        .pricing h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #29353C;
+        }
+        
+        .pricing-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-card.featured {
+            border-color: #44576D;
+            transform: scale(1.05);
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #29353C;
+        }
+        
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #44576D;
+            margin-bottom: 1rem;
+        }
+        
+        .contact {
+            background-color: #29353C;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+        
+        .contact p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer {
+            background-color: #212529;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .navbar-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="navbar-brand">centricle</a>
+            <ul class="navbar-nav">
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Professional Web Development Services</h1>
+            <p>Custom website design, development, and hosting solutions</p>
+            <a href="#contact" class="btn">Get Started Today</a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="row">
+                <div class="card">
+                    <h3>Website Design</h3>
+                    <p>Custom, responsive website designs that represent your brand and engage your customers across all devices.</p>
+                    <p><strong>Starting at $1,500</strong></p>
+                </div>
+                <div class="card">
+                    <h3>Web Development</h3>
+                    <p>Full-stack development using WordPress, PHP, and modern technologies to build powerful, scalable websites.</p>
+                    <p><strong>Custom pricing based on scope</strong></p>
+                </div>
+                <div class="card">
+                    <h3>Web Hosting</h3>
+                    <p>Reliable, secure hosting solutions with ongoing maintenance and support to keep your website running smoothly.</p>
+                    <p><strong>Starting at $20/month</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Pricing</h2>
+            <div class="row">
+                <div class="pricing-card">
+                    <h3>Website Package</h3>
+                    <div class="price">$1,000+</div>
+                    <p>Complete website setup including design, development, initial configuration, and email services. Pricing varies based on complexity and requirements.</p>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Ongoing Hosting</h3>
+                    <div class="price">$20-200/mo</div>
+                    <p>Monthly hosting and maintenance services. Includes security updates, backups, and technical support.</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Consulting</h3>
+                    <div class="price">$100/hr</div>
+                    <p>Expert consultation for web strategy, technical planning, and ongoing development needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Let's discuss your project and create a custom solution for your business needs.</p>
+            <a href="mailto:hello@centricle.com" class="btn">Contact Us Today</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CENTRICLE LLC. Professional web development services.</p>
+        </div>
+    </footer>
+</body>
+</html>
