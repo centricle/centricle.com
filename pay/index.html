@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - centricle</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: #DFEBF6;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            margin: 0 auto;
+            max-width: 72rem;
+            padding: 0 1rem;
+        }
+        
+        .navbar {
+            background-color: #29353C;
+            padding: 1rem 0;
+        }
+        
+        .navbar .container {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .navbar-brand {
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-left: 1rem;
+            text-decoration: none;
+        }
+        
+        .navbar-nav {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
+        
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #AAC7D8;
+        }
+        
+        .payment-section {
+            padding: 4rem 0;
+        }
+        
+        .payment-container {
+            margin: 0 auto;
+            max-width: 28rem;
+        }
+        
+        .payment-card {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        
+        .payment-header {
+            background: linear-gradient(135deg, #44576D, #29353C);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .payment-header h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+        
+        .payment-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .payment-form {
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            -webkit-font-smoothing: antialiased;
+            color: rgb(48, 49, 61);
+            display: flex;
+            font-family: -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            font-size: 14.88px;
+            font-weight: 400;
+            line-height: 17.112px;
+            margin-bottom: 4px;
+        }
+        
+        .form-group input {
+            appearance: none;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid rgb(230, 230, 230);
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.03) 0px 1px 1px 0px, rgba(0, 0, 0, 0.02) 0px 3px 6px 0px;
+            color: rgb(48, 49, 61);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 18.4px;
+            padding: 12px;
+            transition: background 0.15s ease, border 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
+            width: 100%;
+        }
+        
+        .form-group input:focus-visible {
+            border-color: rgb(230, 230, 230) !important;
+            box-shadow: rgba(0, 0, 0, 0.03) 0px 1px 1px 0px, rgba(0, 0, 0, 0.02) 0px 3px 6px 0px !important;
+            outline: 2px auto rgb(0, 95, 204) !important;
+        }
+        
+        .form-group input:focus {
+            border-color: rgb(5, 112, 222) !important;
+            box-shadow: rgba(0, 0, 0, 0.03) 0px 1px 1px 0px, rgba(0, 0, 0, 0.02) 0px 3px 6px 0px, rgba(5, 115, 225, 0.25) 0px 0px 0px 3px, rgba(0, 0, 0, 0.08) 0px 1px 1px 0px !important;
+            outline: none !important;
+        }
+        
+        .form-group input::placeholder {
+            color: #6c757d;
+        }
+        
+        .form-group input:focus {
+            border-color: #768A96;
+            box-shadow: 0 0 0 0.125rem rgba(118, 138, 150, 0.25);
+            outline: none;
+            transform: scale(1.02);
+        }
+        
+        .form-row {
+            column-gap: 12px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        #payment-element {
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        #payment-element iframe {
+            background-color: white;
+            border: 0.125rem solid #44576D;
+            border-radius: 0.375rem;
+            padding: 0.75rem;
+        }
+        
+        #payment-element:focus-within iframe {
+            border-color: #768A96;
+            box-shadow: 0 0 0 0.125rem rgba(118, 138, 150, 0.25);
+        }
+        
+        #card-errors {
+            color: #dc3545;
+            display: none;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            min-height: 1.25rem;
+        }
+        
+        #card-errors:not(:empty) {
+            display: block;
+        }
+        
+        .btn {
+            align-items: center;
+            background-color: #768A96;
+            border: none;
+            border-radius: 0.375rem;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            font-size: 1rem;
+            font-weight: 500;
+            justify-content: center;
+            margin-top: 1rem;
+            padding: 0.875rem 1.5rem;
+            transition: background-color 0.3s, opacity 0.3s, transform 0.2s;
+            width: 100%;
+        }
+        
+        .btn:hover:not(:disabled) {
+            background-color: #AAC7D8;
+            transform: translateY(-1px);
+        }
+        
+        .btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        
+        .spinner {
+            animation: spin 1s linear infinite;
+            border: 0.125rem solid transparent;
+            border-radius: 50%;
+            border-top: 0.125rem solid currentColor;
+            height: 1rem;
+            margin-left: 0.5rem;
+            width: 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .powered-by {
+            color: #6c757d;
+            font-size: 0.75rem;
+            margin-top: 1rem;
+            padding: 0 2rem 2rem;
+            text-align: center;
+        }
+        
+        .footer {
+            background-color: #212529;
+            color: #aaa;
+            margin-top: auto;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .demo-notice {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 0.375rem;
+            color: #856404;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            padding: 0.75rem;
+            text-align: center;
+        }
+        
+        @media (max-width: 48rem) {
+            .payment-container {
+                margin: 0 1rem;
+                max-width: 100%;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .navbar-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="navbar-brand">centricle</a>
+            <ul class="navbar-nav">
+                <li><a href="/" class="nav-link">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="payment-section">
+        <div class="payment-container">
+            <div class="payment-card">
+                <div class="payment-header">
+                    <h1>Complete Payment</h1>
+                    <p>Secure payment processing</p>
+                </div>
+
+                <div class="payment-form">
+                    <div class="form-group">
+                        <label for="payment-element">Card Information</label>
+                        <div id="payment-element">
+                            <!-- Stripe Elements will create form elements here -->
+                        </div>
+                        <div id="card-errors" role="alert"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            placeholder="you@example.com"
+                        >
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="amount">Amount ($)</label>
+                            <input 
+                                type="number" 
+                                id="amount" 
+                                min="1"
+                                step="0.01"
+                                placeholder="500.00"
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="invoice">Invoice #</label>
+                            <input 
+                                type="text" 
+                                id="invoice" 
+                                placeholder="INV-001"
+                            >
+                        </div>
+                    </div>
+
+                    <button type="button" id="submit-button" class="btn">
+                        <span id="button-text">Pay Now</span>
+                        <div id="spinner" class="spinner" style="display: none;"></div>
+                    </button>
+                </div>
+
+                <div class="powered-by">
+                    Powered by Stripe
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CENTRICLE LLC</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Stripe with your publishable key
+        const stripe = Stripe('pk_test_51ReRbD2n3msnFGGQi9SVVWxXSKFfW8WWyrMAq948YjH6KdpTyX25vbj2hZUVLo7q5cS0dSuaYBKxlYyIZ8OGOlui00LTkInoYP');
+        const elements = stripe.elements({
+            mode: 'payment',
+            currency: 'usd',
+            amount: 50000, // Default to $500.00 (in cents)
+        });
+
+        // Create payment element
+        const paymentElement = elements.create('payment', {
+            layout: 'tabs',
+            fields: {
+                billingDetails: 'never'
+            }
+        });
+
+        // Mount payment element
+        paymentElement.mount('#payment-element');
+
+        // Handle real-time validation errors from the payment Element
+        paymentElement.on('change', ({error}) => {
+            const displayError = document.getElementById('card-errors');
+            if (error) {
+                displayError.textContent = error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+
+        // Handle form submission
+        const submitButton = document.getElementById('submit-button');
+        const buttonText = document.getElementById('button-text');
+        const spinner = document.getElementById('spinner');
+        
+        submitButton.addEventListener('click', async () => {
+            const cardErrors = document.getElementById('card-errors');
+            
+            // Clear any previous errors
+            cardErrors.textContent = '';
+            
+            // Disable submit button and show loading
+            submitButton.disabled = true;
+            buttonText.textContent = 'Processing...';
+            spinner.style.display = 'inline-block';
+
+            const email = document.getElementById('email').value;
+            const amount = document.getElementById('amount').value;
+            const invoice = document.getElementById('invoice').value;
+
+            try {
+                // Create payment intent on your backend
+                const response = await fetch('/.netlify/functions/create-payment-intent', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        amount: Math.round(parseFloat(amount) * 100), // Convert to cents
+                        currency: 'usd',
+                        receipt_email: email,
+                        invoice_number: invoice,
+                    }),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const { client_secret } = await response.json();
+
+                // Confirm payment with Stripe
+                const result = await stripe.confirmPayment({
+                    elements,
+                    clientSecret: client_secret,
+                    confirmParams: {
+                        return_url: window.location.href,
+                        receipt_email: email,
+                    },
+                    redirect: 'if_required'
+                });
+
+                if (result.error) {
+                    // Show error to customer
+                    cardErrors.textContent = result.error.message;
+                } else {
+                    // Payment succeeded
+                    alert('Payment successful! Thank you for your purchase.');
+                    // Reset form
+                    document.getElementById('email').value = '';
+                    document.getElementById('amount').value = '';
+                    document.getElementById('invoice').value = '';
+                    paymentElement.clear();
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                cardErrors.textContent = 'An error occurred. Please try again.';
+            }
+
+            // Re-enable submit button and hide loading
+            submitButton.disabled = false;
+            buttonText.textContent = 'Pay Now';
+            spinner.style.display = 'none';
+        });
+
+        // Add interactive effects to inputs
+        const inputs = document.querySelectorAll('input[type="email"], input[type="number"], input[type="text"]');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.style.transform = 'scale(1.02)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
