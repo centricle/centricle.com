@@ -1,9 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-    --color-dark: #0f0f17;
-    --color-dark-card: #16161f;
-    --color-accent: #f97316;
+    --color-slate-900: #0f172a;
+    --color-slate-800: #1e293b;
+    --color-slate-700: #334155;
+    --color-slate-600: #475569;
+    --color-slate-500: #64748b;
+    --color-slate-400: #94a3b8;
+    --color-slate-300: #cbd5e1;
+    --color-slate-100: #f1f5f9;
+    --color-teal-400: #2dd4bf;
+    --color-teal-500: #14b8a6;
+    --color-teal-800: #115e59;
+    --color-teal-900: #134e4a;
 }
 
 html {
@@ -12,15 +21,16 @@ html {
 
 body {
     @apply antialiased;
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
 }
 
 /* Cards */
 .card {
-    @apply bg-dark-card border border-white/10 rounded-lg p-6 transition-all duration-300;
+    @apply bg-slate-800 border border-slate-700 rounded-lg p-6 transition-all duration-300;
 }
 
 .card-link {
-    @apply block hover:border-accent/50 hover:bg-dark-card/80;
+    @apply block hover:border-slate-600 hover:bg-slate-800/80;
 }
 
 /* Buttons */
@@ -29,16 +39,39 @@ body {
 }
 
 .btn-primary {
-    @apply bg-accent text-dark border-transparent hover:bg-accent/90 font-semibold;
+    @apply bg-teal-400 text-slate-900 border-transparent hover:bg-teal-400/90 font-semibold;
 }
 
 /* Form inputs */
 .form-input {
-    @apply w-full px-4 py-3 bg-dark-card border border-white/10 rounded-md text-white placeholder-gray-500 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition-all;
+    @apply w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-md text-slate-100 placeholder-slate-500 focus:border-teal-400 focus:ring-1 focus:ring-teal-400 focus:outline-none transition-all;
 }
 
+/* Stat badge */
+.stat-badge {
+    @apply inline-flex items-center px-3 py-1.5 border border-slate-700 rounded-full text-sm text-slate-400 font-mono;
+}
+
+/* Status badges */
+.status-active {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-900 text-teal-400 border border-teal-800;
+}
+
+.status-ref {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-700 text-slate-400;
+}
+
+/* Tech pills */
+.tech-pill {
+    @apply inline-flex items-center px-2 py-1 rounded text-xs font-mono bg-slate-700 text-slate-400;
+}
+
+/* Tip callout */
+.tip-callout {
+    @apply border-l-2 border-teal-500 pl-4 py-2 text-slate-300;
+}
 
 /* Selection color */
 ::selection {
-    @apply bg-accent/30 text-white;
+    @apply bg-teal-400/30 text-white;
 }
