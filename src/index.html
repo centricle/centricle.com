@@ -3,106 +3,211 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Professional web development services specializing in WordPress, PHP, Django, Python, and Wagtail. Custom website design, development, hosting, and maintenance solutions." />
+    <meta name="description" content="Kevin Smith - Senior software engineer specializing in Django, Wagtail, and Python. Building for the web since the early days." />
 
-    <title>centricle – Professional Web Development Services | WordPress, Django, PHP</title>
+    <title>Kevin Smith – Senior Software Engineer | Django, Wagtail, Python</title>
     <link rel="stylesheet" href="/styles.css" />
 </head>
 
-<body>
-    <nav class="bg-slate-900 py-4">
-        <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
-            <a href="/" class="text-white text-xl font-bold">centricle</a>
+<body class="bg-dark text-white">
+    <nav class="fixed w-full bg-dark/95 backdrop-blur-sm py-4 z-50 border-b border-white/5">
+        <div class="max-w-5xl mx-auto px-6 flex items-center justify-between">
+            <a href="/" class="text-white text-xl font-bold">Kevin Smith</a>
             <ul class="flex gap-6">
-                <li><a href="#contact" class="text-white hover:text-slate-300 transition-colors">Contact</a></li>
+                <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+                <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="hero-spacing bg-linear-to-b from-slate-900 to-white text-white text-center">
-        <div class="max-w-6xl mx-auto px-6">
-            <h1 class="text-5xl font-light mb-4">Professional Web Development Services</h1>
-            <p class="text-xl mb-8 opacity-90">Custom website design, development, and hosting solutions</p>
-            <a href="#contact" class="btn btn-primary">Get Started Today</a>
+    <!-- Hero -->
+    <section class="min-h-screen flex items-center pt-20">
+        <div class="max-w-5xl mx-auto px-6 py-24">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Been building for the web<br class="hidden md:block" /> since the early days.<br class="hidden md:block" />
+                <span class="text-gray-500">Still shipping.</span>
+            </h1>
+            <p class="text-xl text-gray-400 mb-8 max-w-2xl">
+                Senior engineer. Django and Wagtail by preference. I've led teams, led response to SEC audits, and shipped products that generated $100M. Now I build what I want.
+            </p>
+            <p class="text-gray-500 mb-8">
+                Ocean Pines, MD &middot; Previously: Motley Fool, Muck Rack
+            </p>
+            <a href="#projects" class="btn btn-primary">See the work</a>
         </div>
     </section>
 
-    <section class="section-spacing">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-slate-900 text-center mb-12">Our Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="card hover:transform hover:-translate-y-1 hover:shadow-md transition-all duration-300">
-                    <div class="card-header">
-                        <h3 class="card-title">Website Design</h3>
+    <!-- Projects -->
+    <section id="projects" class="py-24">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-4">Projects</h2>
+            <p class="text-gray-400 mb-12">Client work and things I build because I feel like it.</p>
+
+            <!-- Side Projects -->
+            <h3 class="text-lg font-semibold text-gray-500 uppercase tracking-wider mb-6">Side Projects</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+                <a href="https://mileweave.com" target="_blank" rel="noopener" class="card card-link group">
+                    <div class="flex items-start justify-between mb-3">
+                        <h4 class="text-xl font-semibold group-hover:text-accent transition-colors">mileweave</h4>
+                        <span class="text-gray-600 group-hover:text-accent transition-colors">&nearr;</span>
                     </div>
-                    <p class="card-description">Custom, responsive website designs that represent your brand and engage your customers across all devices.</p>
+                    <p class="text-gray-400">Road trip planning with animated route visualization. Multi-day itineraries, full auth, gorgeous dark UI. Supabase, vanilla JS, Google Maps API.</p>
+                </a>
+
+                <a href="https://whatcable.us" target="_blank" rel="noopener" class="card card-link group">
+                    <div class="flex items-start justify-between mb-3">
+                        <h4 class="text-xl font-semibold group-hover:text-accent transition-colors">whatcable.us</h4>
+                        <span class="text-gray-600 group-hover:text-accent transition-colors">&nearr;</span>
+                    </div>
+                    <p class="text-gray-400">Cable and connector reference database. Demystifying USB-C, Thunderbolt, HDMI, and the rest. Astro, TypeScript.</p>
+                </a>
+
+                <a href="https://batteries.guide" target="_blank" rel="noopener" class="card card-link group">
+                    <div class="flex items-start justify-between mb-3">
+                        <h4 class="text-xl font-semibold group-hover:text-accent transition-colors">batteries.guide</h4>
+                        <span class="text-gray-600 group-hover:text-accent transition-colors">&nearr;</span>
+                    </div>
+                    <p class="text-gray-400">Open-source battery specifications database. Technical, thorough, data-driven. Astro, TypeScript.</p>
+                </a>
+
+                <div class="card">
+                    <h4 class="text-xl font-semibold mb-3">Browser Extensions</h4>
+                    <p class="text-gray-400 mb-4">Tools that fix UX annoyances:</p>
+                    <ul class="text-gray-400 space-y-2">
+                        <li><a href="https://chromewebstore.google.com/detail/liberator/fhmmgchnebgmlplmpilgjakljjgookng" target="_blank" rel="noopener" class="text-white hover:text-accent transition-colors">liberator</a> &ndash; Re-enable paste, kill sticky headers, allow text selection</li>
+                        <li><a href="https://chromewebstore.google.com/detail/nuke/jffpcdpgmjgdmnkihichojlnldpmafae" target="_blank" rel="noopener" class="text-white hover:text-accent transition-colors">NUKE</a> &ndash; Clear cookies except whitelisted domains</li>
+                    </ul>
                 </div>
-                <div class="card hover:transform hover:-translate-y-1 hover:shadow-md transition-all duration-300">
-                    <div class="card-header">
-                        <h3 class="card-title">Web Development</h3>
+            </div>
+
+            <!-- Client Work -->
+            <h3 class="text-lg font-semibold text-gray-500 uppercase tracking-wider mb-6">Client Work</h3>
+            <div class="space-y-6">
+                <a href="https://247wallst.com" target="_blank" rel="noopener" class="card card-link group">
+                    <div class="flex items-start justify-between mb-2">
+                        <h4 class="text-xl font-semibold group-hover:text-accent transition-colors">247wallst</h4>
+                        <span class="text-sm text-accent">Current</span>
                     </div>
-                    <p class="card-description">Full-stack development using WordPress, PHP, Django, Python, Wagtail, and modern technologies to build powerful, scalable websites.</p>
+                    <p class="text-gray-400">Custom WordPress theme for financial news. Tailwind CSS, live blog features, custom stock charts plugin.</p>
+                </a>
+
+                <a href="https://muckrack.com" target="_blank" rel="noopener" class="card card-link group">
+                    <h4 class="text-xl font-semibold mb-2 group-hover:text-accent transition-colors">Muck Rack</h4>
+                    <p class="text-gray-400">Marketing engineering with Wagtail and Django. Full-stack work on the public-facing site. 2023&ndash;2025.</p>
+                </a>
+
+                <a href="https://fool.com" target="_blank" rel="noopener" class="card card-link group">
+                    <h4 class="text-xl font-semibold mb-2 group-hover:text-accent transition-colors">Motley Fool</h4>
+                    <p class="text-gray-400">17 years across multiple roles. Built Django CMS and Wagtail implementations, SEO systems, lead gen platforms. Grew from first front-end hire to Director, then back to IC because building beats managing.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="py-24 border-t border-white/5">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-8">Background</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <p class="text-gray-400 mb-6">
+                        I've been building for the web since tables were for layout. Along the way: a FEMA contract building an accessibility-focused GIS application, nearly two decades at Motley Fool where I led the technical response to an SEC audit at their regulated RIA, and marketing engineering at Muck Rack.
+                    </p>
+                    <p class="text-gray-400">
+                        The team I was on at Motley Fool generated ~$100M in revenue over two years. I know what works at scale, and I still get excited about building things.
+                    </p>
                 </div>
-                <div class="card hover:transform hover:-translate-y-1 hover:shadow-md transition-all duration-300">
-                    <div class="card-header">
-                        <h3 class="card-title">Web Hosting</h3>
-                    </div>
-                    <p class="card-description">Reliable, secure hosting solutions with ongoing maintenance and support to keep your website running smoothly.</p>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">What I prefer</h3>
+                    <p class="text-gray-400 mb-6">Python, Django, Wagtail CMS</p>
+
+                    <h3 class="text-lg font-semibold mb-4">What I'm also good at</h3>
+                    <p class="text-gray-400 mb-6">WordPress themes and plugins, especially for editorial and publishing</p>
+
+                    <h3 class="text-lg font-semibold mb-4">What I build for fun</h3>
+                    <p class="text-gray-400">Reference databases, browser extensions, tools that solve annoyances</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section-spacing text-center" id="contact">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-8">Ready to Get Started?</h2>
-            <p class="text-xl mb-8">Let's discuss your project and create a custom solution for your business needs.</p>
+    <!-- Contact -->
+    <section class="py-24 border-t border-white/5" id="contact">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-4">Got a project?</h2>
+            <p class="text-gray-400 mb-8">Let's talk.</p>
 
-            <form class="max-w-lg mx-auto" name="contact" method="POST" netlify>
-                <div class="mb-6 text-left">
-                    <label for="email-input" class="block font-medium mb-2">Email:</label>
-                    <input 
-                        id="email-input" 
-                        type="email"
-                        class="w-full px-3 py-3 bg-white/10 border-1 border-slate-400 rounded-md focus:border-slate-400 focus:bg-white/20 focus:outline-none transition-all resize-y"
-                        placeholder="you@example.com"
-                        required
-                    />
-                </div>
-                <div class="mb-6 text-left">
-                    <label for="message-textarea" class="block font-medium mb-2">Message:</label>
-                    <textarea 
-                        id="message-textarea" 
-                        name="message" 
-                        placeholder="Tell us about your project..." 
-                        class="w-full h-32 px-3 py-3 bg-white/10 border-1 border-slate-400 rounded-md focus:border-slate-400 focus:bg-white/20 focus:outline-none transition-all resize-y"
-                        required
-                    ></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Get Started Today</button>
-            </form>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <form class="space-y-6" name="contact" method="POST" netlify>
+                    <div>
+                        <label for="name-input" class="block text-sm font-medium text-gray-400 mb-2">Name</label>
+                        <input
+                            id="name-input"
+                            name="name"
+                            type="text"
+                            class="form-input"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label for="email-input" class="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                        <input
+                            id="email-input"
+                            name="email"
+                            type="email"
+                            class="form-input"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label for="message-textarea" class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                        <textarea
+                            id="message-textarea"
+                            name="message"
+                            rows="4"
+                            class="form-input resize-y"
+                            required
+                        ></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send message</button>
+                </form>
 
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Email</h3>
+                        <a href="mailto:ksmith@centricle.com" class="text-accent hover:underline">ksmith@centricle.com</a>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">GitHub</h3>
+                        <a href="https://github.com/centricle" target="_blank" rel="noopener" class="text-accent hover:underline">github.com/centricle</a>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">LinkedIn</h3>
+                        <a href="https://linkedin.com/in/thekevinsmith" target="_blank" rel="noopener" class="text-accent hover:underline">linkedin.com/in/thekevinsmith</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="bg-slate-900 text-slate-400 py-8 text-center">
-        <div class="max-w-6xl mx-auto px-6">
-            <p>&copy; 2025 CENTRICLE LLC</p>
+    <footer class="py-8 border-t border-white/5 text-center text-gray-500">
+        <div class="max-w-5xl mx-auto px-6">
+            <p>&copy; 2026 Kevin Smith / CENTRICLE LLC</p>
         </div>
     </footer>
 
     <script>
-        document.querySelectorAll('a[href="#contact"]').forEach(link => {
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                const input = document.getElementById('email-input');
-                input.scrollIntoView();
-                
-                setTimeout(() => {
-                    input.focus();
-                }, 100);
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
+
     </script>
 </body>
 </html>

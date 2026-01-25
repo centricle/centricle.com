@@ -1,37 +1,44 @@
 @import "tailwindcss";
 
+@theme {
+    --color-dark: #0f0f17;
+    --color-dark-card: #16161f;
+    --color-accent: #f97316;
+}
+
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
+body {
+    @apply antialiased;
+}
+
+/* Cards */
 .card {
-  @apply bg-white border border-slate-200 rounded-lg shadow-sm p-6;
+    @apply bg-dark-card border border-white/10 rounded-lg p-6 transition-all duration-300;
 }
 
-.card-header {
-  @apply mb-4 pb-4 border-b border-slate-200;
+.card-link {
+    @apply block hover:border-accent/50 hover:bg-dark-card/80;
 }
 
-.card-title {
-  @apply text-lg font-semibold leading-tight text-slate-900;
-}
-
-.card-description {
-  @apply text-sm text-slate-600 mt-2;
-}
-
+/* Buttons */
 .btn {
-  @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border transition-all duration-150 cursor-pointer;
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded-md border transition-all duration-150 cursor-pointer;
 }
 
 .btn-primary {
-  @apply bg-slate-900 text-white border-transparent hover:opacity-90;
+    @apply bg-accent text-white border-transparent hover:bg-accent/90;
 }
 
-.section-spacing {
-  @apply py-16;
+/* Form inputs */
+.form-input {
+    @apply w-full px-4 py-3 bg-dark-card border border-white/10 rounded-md text-white placeholder-gray-500 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition-all;
 }
 
-.hero-spacing {
-  @apply py-24;
+
+/* Selection color */
+::selection {
+    @apply bg-accent/30 text-white;
 }

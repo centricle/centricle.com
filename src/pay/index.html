@@ -3,87 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment – centricle</title>
+    <title>Payment – Kevin Smith</title>
     <script src="https://js.stripe.com/v3/"></script>
     <link rel="stylesheet" href="/styles.css" />
 </head>
 
-<body>
-    <nav class="bg-slate-800 py-4">
-        <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
-            <a href="/" class="text-white text-xl font-bold">centricle</a>
+<body class="bg-dark text-white min-h-screen flex flex-col">
+    <nav class="bg-dark/95 backdrop-blur-sm py-4 border-b border-white/5">
+        <div class="max-w-5xl mx-auto px-6 flex items-center justify-between">
+            <a href="/" class="text-white text-xl font-bold">Kevin Smith</a>
             <ul class="flex gap-6">
-                <li><a href="/" class="text-white hover:text-slate-300 transition-colors">Home</a></li>
+                <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="section-spacing bg-slate-50 min-h-screen">
-        <div class="max-w-lg mx-auto px-6">
-            <div class="card overflow-hidden shadow-lg">
-                <div class="bg-gradient-to-br from-slate-700 to-slate-800 text-white p-8 text-center">
-                    <h1 class="text-3xl font-light mb-2">Complete Payment</h1>
-                    <p class="opacity-90">Secure payment processing</p>
+    <section class="flex-1 flex items-center py-16">
+        <div class="max-w-lg mx-auto px-6 w-full">
+            <div class="card overflow-hidden">
+                <div class="bg-gradient-to-br from-dark-card to-dark p-8 text-center border-b border-white/10 -m-6 mb-6">
+                    <h1 class="text-3xl font-bold mb-2">Complete Payment</h1>
+                    <p class="text-gray-400">Secure payment processing</p>
                 </div>
 
-                <div class="p-8">
-                    <div class="mb-6">
-                        <label for="payment-element" class="block text-sm font-medium text-slate-700 mb-2">Card Information</label>
+                <div class="space-y-6">
+                    <div>
+                        <label for="payment-element" class="block text-sm font-medium text-gray-400 mb-2">Card Information</label>
                         <div id="payment-element" class="transition-all duration-300">
                             <!-- Stripe Elements will create form elements here -->
                         </div>
-                        <div id="card-errors" role="alert" class="text-red-600 text-sm mt-2 min-h-5 hidden empty:hidden"></div>
+                        <div id="card-errors" role="alert" class="text-red-500 text-sm mt-2 min-h-5 hidden empty:hidden"></div>
                     </div>
 
-                    <div class="mb-6">
-                        <label for="email" class="block text-sm font-medium text-slate-700 mb-2">Email</label>
-                        <input 
-                            type="email" 
-                            id="email" 
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                        <input
+                            type="email"
+                            id="email"
                             placeholder="you@example.com"
-                            class="w-full px-3 py-3 bg-white border border-slate-200 rounded-md text-slate-900 placeholder-slate-400 focus:border-slate-400 focus:ring-2 focus:ring-slate-200 focus:outline-none transition-all"
+                            class="form-input"
                         >
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label for="amount" class="block text-sm font-medium text-slate-700 mb-2">Amount ($)</label>
-                            <input 
-                                type="number" 
-                                id="amount" 
+                            <label for="amount" class="block text-sm font-medium text-gray-400 mb-2">Amount ($)</label>
+                            <input
+                                type="number"
+                                id="amount"
                                 min="1"
                                 step="0.01"
                                 placeholder="500.00"
-                                class="w-full px-3 py-3 bg-white border border-slate-200 rounded-md text-slate-900 placeholder-slate-400 focus:border-slate-400 focus:ring-2 focus:ring-slate-200 focus:outline-none transition-all"
+                                class="form-input"
                             >
                         </div>
                         <div>
-                            <label for="invoice" class="block text-sm font-medium text-slate-700 mb-2">Invoice #</label>
-                            <input 
-                                type="text" 
-                                id="invoice" 
+                            <label for="invoice" class="block text-sm font-medium text-gray-400 mb-2">Invoice #</label>
+                            <input
+                                type="text"
+                                id="invoice"
                                 placeholder="INV-001"
-                                class="w-full px-3 py-3 bg-white border border-slate-200 rounded-md text-slate-900 placeholder-slate-400 focus:border-slate-400 focus:ring-2 focus:ring-slate-200 focus:outline-none transition-all"
+                                class="form-input"
                             >
                         </div>
                     </div>
 
-                    <button type="button" id="submit-button" class="btn btn-primary w-full flex items-center justify-center">
+                    <button type="button" id="submit-button" class="btn btn-primary w-full">
                         <span id="button-text">Pay Now</span>
                         <div id="spinner" class="animate-spin ml-2 h-4 w-4 border-2 border-white border-t-transparent rounded-full" style="display: none;"></div>
                     </button>
                 </div>
 
-                <div class="text-center text-xs text-slate-500 pb-6">
+                <div class="text-center text-xs text-gray-500 mt-6">
                     Powered by Stripe
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-slate-900 text-slate-400 py-8 text-center">
-        <div class="max-w-6xl mx-auto px-6">
-            <p>&copy; 2025 CENTRICLE LLC</p>
+    <footer class="py-8 border-t border-white/5 text-center text-gray-500">
+        <div class="max-w-5xl mx-auto px-6">
+            <p>&copy; 2026 Kevin Smith / CENTRICLE LLC</p>
         </div>
     </footer>
 
@@ -94,6 +94,17 @@
             mode: 'payment',
             currency: 'usd',
             amount: 50000, // Default to $500.00 (in cents)
+            appearance: {
+                theme: 'night',
+                variables: {
+                    colorPrimary: '#f97316',
+                    colorBackground: '#16161f',
+                    colorText: '#ffffff',
+                    colorDanger: '#ef4444',
+                    fontFamily: 'system-ui, sans-serif',
+                    borderRadius: '6px',
+                }
+            }
         });
 
         // Create payment element
@@ -121,13 +132,13 @@
         const submitButton = document.getElementById('submit-button');
         const buttonText = document.getElementById('button-text');
         const spinner = document.getElementById('spinner');
-        
+
         submitButton.addEventListener('click', async () => {
             const cardErrors = document.getElementById('card-errors');
-            
+
             // Clear any previous errors
             cardErrors.textContent = '';
-            
+
             // Disable submit button and show loading
             submitButton.disabled = true;
             buttonText.textContent = 'Processing...';
@@ -190,18 +201,6 @@
             submitButton.disabled = false;
             buttonText.textContent = 'Pay Now';
             spinner.style.display = 'none';
-        });
-
-        // Add interactive effects to inputs
-        const inputs = document.querySelectorAll('input[type="email"], input[type="number"], input[type="text"]');
-        inputs.forEach(input => {
-            input.addEventListener('focus', function() {
-                this.style.transform = 'scale(1.02)';
-            });
-            
-            input.addEventListener('blur', function() {
-                this.style.transform = 'scale(1)';
-            });
         });
     </script>
 </body>
