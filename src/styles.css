@@ -48,7 +48,9 @@ body {
 
 /* Stat badge */
 .stat-badge {
-    @apply inline-flex items-center px-3 py-1.5 border border-slate-700 rounded-full text-sm text-slate-400 font-mono;
+    @apply inline-flex items-center border border-slate-700 rounded-full text-sm text-slate-400 font-mono;
+    padding-block: calc(var(--spacing) * 2.5);
+    padding-inline: calc(var(--spacing) * 3) 1.2rem;
 }
 
 /* Status badges */
