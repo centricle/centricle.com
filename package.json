@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build:css": "npx @tailwindcss/cli -i ./src/styles.css -o ./dist/styles.css --minify",
-    "build:html": "mkdir -p dist && cp -r src/*.html src/*.svg src/*.jpg dist/ && mkdir -p dist/pay && cp -r src/pay/*.html dist/pay/",
+    "build:html": "mkdir -p dist && cp -r src/*.html src/*.svg src/*.jpg dist/ && mkdir -p dist/pay && cp -r src/pay/*.html dist/pay/ && mkdir -p dist/screenshots && cp -r src/screenshots/*.png dist/screenshots/",
     "build": "npm run build:css && npm run build:html",
     "watch:css": "npx @tailwindcss/cli -i ./src/styles.css -o ./dist/styles.css --watch",
     "watch:html": "nodemon --watch src --ext html --exec 'npm run build:html'",

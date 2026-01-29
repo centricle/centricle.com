@@ -62,6 +62,13 @@ body {
     @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-700 text-slate-300;
 }
 
+.ribbon-building {
+    @apply absolute text-xs font-medium bg-amber-900/80 text-amber-300 py-1 px-8;
+    top: 20px;
+    right: -30px;
+    transform: rotate(45deg);
+}
+
 /* Tech pills */
 .tech-pill {
     @apply inline-flex items-center px-2 py-1 rounded text-xs font-mono bg-slate-700 text-slate-300;
