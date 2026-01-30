@@ -1,6 +1,10 @@
 # centricle.com
 
-Static website built with Tailwind CSS v4 and deployed on Netlify.
+Personal portfolio for Kevin Smith. Static site built with Tailwind CSS v4, deployed on Netlify.
+
+## Principles
+
+- **Be real.** No strategic understatement, no positioning games. Say what's true and let it stand. This applies to experience claims, capabilities, and all client-facing communication.
 
 ## Tech Stack
 

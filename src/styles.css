@@ -32,6 +32,10 @@ body {
     @apply block hover:border-slate-600 hover:bg-slate-800/80;
 }
 
+.card img {
+    @apply bg-slate-900;
+}
+
 /* Buttons */
 .btn {
     @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded-md border transition-all duration-150 cursor-pointer;
