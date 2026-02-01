@@ -101,6 +101,42 @@
         </div>
     </section>
 
+    <!-- Product Families -->
+    <section class="py-24 border-t border-slate-700/50">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-slate-100 mb-4">Product Families</h2>
+            <p class="text-slate-400 mb-12">Side projects organized by purpose.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a href="https://theloomer.us" target="_blank" rel="noopener" class="card card-link group">
+                    <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-xl font-semibold text-slate-100 group-hover:text-amber-400 transition-colors">The Loomer</h3>
+                        <span class="text-xs text-slate-500">.us</span>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">Multi-input apps that weave separate sources into unified outputs.</p>
+                    <div class="flex gap-2 text-sm text-slate-500">
+                        <span>mileweave</span>
+                        <span>&bull;</span>
+                        <span>picweave</span>
+                    </div>
+                </a>
+                <a href="https://thelookup.fyi" target="_blank" rel="noopener" class="card card-link group">
+                    <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">The Lookup</h3>
+                        <span class="text-xs text-slate-500">.fyi</span>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">Reference databases turning confusion into clarity. Objective specs, no opinions.</p>
+                    <div class="flex gap-2 text-sm text-slate-500">
+                        <span>batteries</span>
+                        <span>&bull;</span>
+                        <span>cables</span>
+                        <span>&bull;</span>
+                        <span>fasteners</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects -->
     <section id="projects" class="py-24">
         <div class="max-w-5xl mx-auto px-6">
@@ -110,7 +146,7 @@
             <!-- Side Projects -->
             <h3 class="text-lg font-semibold text-slate-400 uppercase tracking-wider mb-6">Side Projects</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-                <a href="https://picweave.com" target="_blank" rel="noopener" class="card card-link group">
+                <a href="https://picweave.us" target="_blank" rel="noopener" class="card card-link group">
                     <img src="/screenshots/picweave.png" alt="Picweave photo timeline interface" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
                     <div class="flex items-start justify-between mb-3">
                         <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">picweave</h4>
@@ -124,10 +160,10 @@
                     </div>
                 </a>
 
-                <a href="https://whatcable.us" target="_blank" rel="noopener" class="card card-link group">
+                <a href="https://cables.fyi" target="_blank" rel="noopener" class="card card-link group">
                     <img src="/screenshots/whatcable.png" alt="WhatCable connector database interface" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
                     <div class="flex items-start justify-between mb-3">
-                        <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">whatcable.us</h4>
+                        <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">cables.fyi</h4>
                         <span class="status-active">Active</span>
                     </div>
                     <p class="text-slate-400 text-sm mb-4">Authoritative database demystifying USB-C, Thunderbolt, and 50+ connector types.</p>
@@ -137,10 +173,10 @@
                     </div>
                 </a>
 
-                <a href="https://batteries.guide" target="_blank" rel="noopener" class="card card-link group">
-                    <img src="/screenshots/batteries.png" alt="Batteries.guide database interface" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
+                <a href="https://batteries.fyi" target="_blank" rel="noopener" class="card card-link group">
+                    <img src="/screenshots/batteries.png" alt="Batteries.fyi database interface" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
                     <div class="flex items-start justify-between mb-3">
-                        <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">batteries.guide</h4>
+                        <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">batteries.fyi</h4>
                         <span class="status-active">Active</span>
                     </div>
                     <p class="text-slate-400 text-sm mb-4">Complete battery specifications database. Every consumer battery type with dimensions, voltage, and technical data.</p>
@@ -150,17 +186,29 @@
                     </div>
                 </a>
 
-                <a href="https://mileweave.com" target="_blank" rel="noopener" class="card card-link group">
+                <a href="https://mileweave.us" target="_blank" rel="noopener" class="card card-link group">
                     <img src="/screenshots/mileweave.png" alt="Mileweave trip planner interface" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
                     <div class="flex items-start justify-between mb-3">
                         <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">mileweave</h4>
                         <span class="status-active">Active</span>
                     </div>
-                    <p class="text-slate-400 text-sm mb-4">Multi-day road trip planner with intelligent day segmentation. 50K+ routes planned.</p>
+                    <p class="text-slate-400 text-sm mb-4">Multi-day road trip planner with intelligent day segmentation.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="tech-pill">Supabase</span>
                         <span class="tech-pill">JavaScript</span>
                         <span class="tech-pill">Google Maps</span>
+                    </div>
+                </a>
+
+                <a href="https://fasteners.fyi" target="_blank" rel="noopener" class="card card-link group">
+                    <div class="flex items-start justify-between mb-3">
+                        <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">fasteners.fyi</h4>
+                        <span class="status-active">Active</span>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">Fastener specifications database. Screws, bolts, anchors, and nuts with dimensions and standards.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-pill">Astro</span>
+                        <span class="tech-pill">TypeScript</span>
                     </div>
                 </a>
 
