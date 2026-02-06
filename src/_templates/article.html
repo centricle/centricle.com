@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{description}}" />
+    <title>{{title}} | Kevin Smith</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LN2KZZ0NLT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LN2KZZ0NLT');
+    </script>
+</head>
+<body class="bg-slate-900 text-slate-300">
+    <canvas id="nebula-bg" class="fixed inset-0 pointer-events-none" style="z-index: 0;"></canvas>
+    <nav class="fixed w-full bg-slate-900/95 backdrop-blur-sm py-4 z-50 border-b border-slate-700/50">
+        <div class="max-w-5xl mx-auto px-6 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3 text-slate-100 text-xl font-bold">
+                <img src="/avatar.jpg" alt="" class="w-8 h-8 rounded-full" />
+                Kevin Smith
+            </a>
+            <ul class="flex gap-6">
+                <li><a href="/" class="text-slate-400 hover:text-slate-100 transition-colors">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="relative z-10 pt-24 pb-16">
+        <article class="max-w-3xl mx-auto px-6">
+            <header class="mb-8">
+                <h1 class="text-4xl font-bold text-slate-100 mb-4">{{title}}</h1>
+                <time class="text-slate-500 text-sm" datetime="{{date}}">{{dateFormatted}}</time>
+            </header>
+
+            <div class="prose prose-invert prose-slate max-w-none prose-headings:text-slate-100 prose-a:text-teal-400 prose-strong:text-slate-200 prose-code:text-amber-400 prose-code:bg-slate-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-slate-800 prose-pre:border prose-pre:border-slate-700">
+                {{content}}
+            </div>
+        </article>
+    </main>
+
+    <footer class="relative z-10 py-8 border-t border-slate-700/50 text-slate-400">
+        <div class="max-w-5xl mx-auto px-6 flex items-center justify-between">
+            <p>&copy; 2026 Kevin Smith</p>
+            <div class="flex items-center gap-4">
+                <a href="/privacy" class="text-slate-400 hover:text-slate-100 transition-colors text-sm">Privacy</a>
+                <a href="/terms" class="text-slate-400 hover:text-slate-100 transition-colors text-sm">Terms</a>
+                <a href="https://github.com/centricle" target="_blank" rel="noopener" class="text-amber-500/70 hover:text-amber-500 transition-colors" title="Built by ksmith" aria-label="GitHub">
+                    <svg class="w-6 h-6" viewBox="0 0 32 32" fill="none">
+                        <path d="M 23.5 7.5 C 19 3.5, 11.5 4, 7.5 8.5 C 3.5 13, 4 20.5, 8 24.5 C 12.5 28.5, 20 28, 24 23.5" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <ellipse cx="15.5" cy="16.3" rx="3.2" ry="2.8" fill="currentColor"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Nebula background animation
+        (function() {
+            const canvas = document.getElementById('nebula-bg');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            if (!ctx) return;
+
+            let animationId;
+            let time = 0;
+
+            const resize = () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            };
+
+            resize();
+            window.addEventListener('resize', resize);
+
+            const nebulaColors = [
+                { r: 180, g: 60, b: 40, a: 0.35 },
+                { r: 220, g: 100, b: 50, a: 0.28 },
+                { r: 140, g: 40, b: 60, a: 0.23 },
+                { r: 80, g: 140, b: 160, a: 0.19 },
+                { r: 200, g: 150, b: 80, a: 0.23 },
+            ];
+
+            const particles = [];
+            const maxParticles = 60;
+
+            const createParticle = () => {
+                const angle = Math.random() * Math.PI * 0.5 + Math.PI;
+                const speed = Math.random() * 0.4 + 0.15;
+                const color = nebulaColors[Math.floor(Math.random() * nebulaColors.length)];
+
+                return {
+                    x: canvas.width + Math.random() * 200,
+                    y: -Math.random() * 200,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed,
+                    life: 0,
+                    maxLife: Math.random() * 400 + 200,
+                    color: color,
+                    size: Math.random() * 150 + 50,
+                };
+            };
+
+            // Initialize particles spread across viewport
+            for (let i = 0; i < maxParticles; i++) {
+                const p = createParticle();
+                p.x = canvas.width * 0.5 + Math.random() * canvas.width * 0.6;
+                p.y = Math.random() * canvas.height * 0.6;
+                p.life = Math.random() * p.maxLife;
+                particles.push(p);
+            }
+
+            const drawNebula = () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Main nebula glow from top-right
+                const mainGradient = ctx.createRadialGradient(
+                    canvas.width + 100, -100, 0,
+                    canvas.width * 0.5, canvas.height * 0.3, canvas.width * 0.8
+                );
+
+                const pulse = Math.sin(time * 0.00065) * 0.03 + 0.97;
+                const slowPulse = Math.sin(time * 0.00035) * 0.02 + 0.98;
+
+                mainGradient.addColorStop(0, `rgba(180, 60, 40, ${0.58 * pulse})`);
+                mainGradient.addColorStop(0.2, `rgba(200, 80, 50, ${0.36 * pulse})`);
+                mainGradient.addColorStop(0.4, `rgba(140, 50, 60, ${0.26 * slowPulse})`);
+                mainGradient.addColorStop(0.6, `rgba(80, 100, 120, ${0.13 * slowPulse})`);
+                mainGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+                ctx.fillStyle = mainGradient;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Secondary wisp with drift
+                const wisp1 = ctx.createRadialGradient(
+                    canvas.width * 0.8 + Math.sin(time * 0.001) * 30,
+                    canvas.height * 0.15 + Math.cos(time * 0.0008) * 20,
+                    0,
+                    canvas.width * 0.6, canvas.height * 0.3, canvas.width * 0.5
+                );
+                wisp1.addColorStop(0, `rgba(220, 120, 60, ${0.29 * pulse})`);
+                wisp1.addColorStop(0.3, `rgba(180, 80, 50, ${0.2 * slowPulse})`);
+                wisp1.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+                ctx.fillStyle = wisp1;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Teal filament accent
+                const tealWisp = ctx.createRadialGradient(
+                    canvas.width * 0.7 + Math.cos(time * 0.0009) * 40,
+                    canvas.height * 0.25 + Math.sin(time * 0.0012) * 25,
+                    0,
+                    canvas.width * 0.5, canvas.height * 0.35, canvas.width * 0.3
+                );
+                tealWisp.addColorStop(0, `rgba(60, 140, 160, ${0.2 * slowPulse})`);
+                tealWisp.addColorStop(0.5, `rgba(40, 100, 120, ${0.12 * pulse})`);
+                tealWisp.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+                ctx.fillStyle = tealWisp;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Draw particles
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    p.x += p.vx + Math.sin(time * 0.0025 + i) * 0.1;
+                    p.y += p.vy + Math.cos(time * 0.002 + i) * 0.08;
+                    p.life++;
+
+                    if (p.life > p.maxLife || p.x < -p.size || p.y > canvas.height + p.size) {
+                        particles[i] = createParticle();
+                        continue;
+                    }
+
+                    const lifeRatio = p.life / p.maxLife;
+                    const fadeIn = Math.min(lifeRatio * 5, 1);
+                    const fadeOut = 1 - Math.pow(lifeRatio, 2);
+                    const alpha = fadeIn * fadeOut * p.color.a * pulse;
+
+                    const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
+                    gradient.addColorStop(0, `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${alpha})`);
+                    gradient.addColorStop(0.5, `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${alpha * 0.3})`);
+                    gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+                    ctx.fillStyle = gradient;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                // Subtle warmth variation
+                const warmthCycle = Math.sin(time * 0.0002) * 0.02;
+                const warmthGradient = ctx.createRadialGradient(
+                    canvas.width * 0.85, canvas.height * 0.1, 0,
+                    canvas.width * 0.6, canvas.height * 0.3, canvas.width * 0.4
+                );
+                warmthGradient.addColorStop(0, `rgba(255, 200, 150, ${0.03 + warmthCycle})`);
+                warmthGradient.addColorStop(0.4, `rgba(220, 100, 60, ${0.015 + warmthCycle * 0.5})`);
+                warmthGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+                ctx.fillStyle = warmthGradient;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                time += 16;
+                animationId = requestAnimationFrame(drawNebula);
+            };
+
+            drawNebula();
+        })();
+    </script>
+</body>
+</html>

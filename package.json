@@ -1,15 +1,18 @@
 {
   "name": "centricle.com",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
+    "build:content": "node scripts/build-content.js",
     "build:css": "npx @tailwindcss/cli -i ./src/styles.css -o ./dist/styles.css --minify",
     "build:html": "mkdir -p dist && cp -r src/*.html src/*.svg src/*.jpg dist/ && mkdir -p dist/pay && cp -r src/pay/*.html dist/pay/ && mkdir -p dist/screenshots && cp -r src/screenshots/*.png dist/screenshots/",
-    "build": "npm run build:css && npm run build:html",
+    "build": "npm run build:content && npm run build:css && npm run build:html",
     "watch:css": "npx @tailwindcss/cli -i ./src/styles.css -o ./dist/styles.css --watch",
+    "watch:content": "nodemon --watch content --ext md --exec 'npm run build:content'",
     "watch:html": "nodemon --watch src --ext html --exec 'npm run build:html'",
-    "serve": "browser-sync start --config bs-config.js",
-    "dev": "npm run build:html && npm-run-all --parallel watch:css watch:html serve"
+    "serve": "browser-sync start --config bs-config.cjs",
+    "dev": "npm run build:content && npm run build:html && npm-run-all --parallel watch:css watch:content watch:html serve"
   },
   "repository": {
     "type": "git",
@@ -26,6 +29,8 @@
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.18",
     "browser-sync": "^3.0.4",
+    "gray-matter": "^4.0.3",
+    "marked": "^15.0.0",
     "nodemon": "^3.1.10",
     "npm-run-all": "^4.1.5",
     "tailwindcss": "^4.1.18"

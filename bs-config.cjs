@@ -1,7 +1,10 @@
 module.exports = {
   port: 7001,
   server: {
-    baseDir: 'dist'
+    baseDir: 'dist',
+    serveStaticOptions: {
+      extensions: ['html']
+    }
   },
   files: [
     'dist/**/*.css',
