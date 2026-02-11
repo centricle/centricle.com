@@ -1,16 +1,37 @@
-node_modules/
+# Build output
 dist/
-.netlify/
-.DS_Store
-*.log
+.astro/
+
+# Dependencies
+node_modules/
+
+# Environment
 .env
-logo-preview.html
+.env.*
+
+# Netlify
+.netlify/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Playwright screenshots (MCP)
+.playwright-mcp/
+
+# Project docs (gitignored per portfolio standard)
 CLAUDE.md
-HANDOFF.md
 ROADMAP.md
-v0-HANDOFF.md
+HANDOFF.md
+
+# One-off artifacts
+logo-preview.html
 centricle-*.png
 constellation-*.png
 dna-*.png
 *.zip
+*.log
 lighthouse-report.*
