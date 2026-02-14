@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://centricle.com/sitemap.xml

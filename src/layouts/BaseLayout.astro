@@ -2,16 +2,19 @@
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
   structuredData?: string;
 }
 
 const {
   title,
   description = 'Kevin Smith - Senior software engineer specializing in Django, Wagtail, and Python. 24 years in, still shipping.',
+  ogImage = '/og-image.png',
   structuredData,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, 'https://centricle.com');
+const ogImageURL = new URL(ogImage, 'https://centricle.com');
 ---
 
 <!doctype html>
@@ -23,6 +26,19 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://centricle.com');
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href={canonicalURL} />
     <title>{title}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LN2KZZ0NLT"></script>
@@ -40,7 +56,7 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://centricle.com');
     <nav class="fixed w-full bg-slate-900/95 backdrop-blur-sm py-4 z-50 border-b border-slate-700/50">
       <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
         <a href="/" class="flex items-center gap-3 text-slate-100 text-xl font-bold">
-          <img src="/avatar.jpg" alt="" class="w-8 h-8 rounded-full" />
+          <img src="/avatar.jpg" alt="" width="460" height="460" class="w-8 h-8 rounded-full" />
           Kevin Smith
         </a>
         <ul class="hidden md:flex gap-6">
