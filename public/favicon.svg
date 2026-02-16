@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Centricle favicon — G1 Hot Iron variant
+       Contained standard: dark rounded rect + dark circle + mark in limestone off-white.
+       Stroke weights bumped for 16px readability. -->
+  <rect width="32" height="32" rx="6" fill="#0f172a" stroke="#334155" stroke-width="0.75"/>
+  <circle cx="16" cy="16" r="12" fill="#151520"/>
+  <circle cx="16" cy="16" r="12" fill="none" stroke="#d4d0ca" stroke-width="0.8" opacity="0.2"/>
+  <g transform="rotate(-5, 16, 16)">
+    <!-- Spine (bumped weight for favicon) -->
+    <path d="M 11 5 L 10.8 10 L 11.1 16 L 10.9 22 L 11 27" stroke="#d4d0ca" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- Upper arm -->
+    <path d="M 11.1 16 L 15 11.5 L 21 5.5" stroke="#d4d0ca" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- Lower arm -->
+    <path d="M 11.1 16 L 15.5 19.8 L 23.5 24.5" stroke="#d4d0ca" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- Junction node -->
+    <circle cx="11" cy="16" r="2.2" fill="#d4d0ca"/>
+  </g>
+</svg>

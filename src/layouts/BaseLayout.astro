@@ -1,0 +1,92 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  structuredData?: string;
+}
+
+const {
+  title,
+  description = 'Kevin Smith - Senior software engineer specializing in Django, Wagtail, and Python. 24 years in, still shipping.',
+  ogImage = '/og-image.webp',
+  structuredData,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, 'https://centricle.com');
+const ogImageURL = new URL(ogImage, 'https://centricle.com');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={canonicalURL} />
+    <title>{title}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LN2KZZ0NLT"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LN2KZZ0NLT');
+    </script>
+
+    {structuredData && <script type="application/ld+json" set:html={structuredData} />}
+    <slot name="head" />
+  </head>
+  <body class="bg-slate-900 text-slate-300">
+    <nav class="fixed w-full bg-slate-900/95 backdrop-blur-sm py-4 z-50 border-b border-slate-700/50">
+      <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3 text-slate-100 text-xl font-bold">
+          <img src="/avatar.jpg" alt="" width="460" height="460" class="w-8 h-8 rounded-full" />
+          Kevin Smith
+        </a>
+        <ul class="hidden md:flex gap-6">
+          <li><a href="/#projects" class="text-slate-400 hover:text-slate-100 transition-colors">Projects</a></li>
+          <li><a href="/#contact" class="text-slate-400 hover:text-slate-100 transition-colors">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <slot name="before-nav" />
+
+    <div id="page-wrapper" class="relative" style="z-index:1;">
+      <main class="relative">
+        <slot />
+      </main>
+
+      <footer class="relative z-10 py-8 border-t border-slate-700/50 text-slate-400">
+        <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
+          <p>&copy; 2026 Kevin Smith</p>
+          <div class="flex items-center gap-4">
+            <a href="https://github.com/centricle" target="_blank" rel="noopener" class="text-white/60 hover:text-white transition-colors" title="Built by ksmith" aria-label="GitHub">
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="36" height="36" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom"><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></svg>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>

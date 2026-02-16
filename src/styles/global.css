@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+    --color-slate-900: #0f172a;
+    --color-slate-800: #1e293b;
+    --color-slate-700: #334155;
+    --color-slate-600: #475569;
+    --color-slate-500: #64748b;
+    --color-slate-400: #94a3b8;
+    --color-slate-300: #cbd5e1;
+    --color-slate-100: #f1f5f9;
+    --color-teal-400: #2dd4bf;
+    --color-teal-500: #14b8a6;
+    --color-teal-800: #115e59;
+    --color-teal-900: #134e4a;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 20px; /* graybeard mode */
+}
+
+body {
+    @apply antialiased;
+}
+
+/* Cards */
+.card {
+    @apply bg-slate-800 border border-slate-700 rounded-lg p-6 transition-all duration-300;
+}
+
+.card-link {
+    @apply block hover:border-slate-600 hover:bg-slate-800/80;
+}
+
+.card img {
+    @apply bg-slate-900;
+}
+
+/* Buttons */
+.btn {
+    @apply inline-flex items-center justify-center px-5 py-2 text-lg font-medium rounded-md border transition-all duration-150 cursor-pointer;
+}
+
+.btn-primary {
+    @apply bg-teal-400 text-slate-900 border-transparent hover:bg-teal-400/90 font-semibold;
+}
+
+/* Form inputs */
+.form-input {
+    @apply w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-md text-slate-100 placeholder-slate-500 focus:border-teal-400 focus:ring-1 focus:ring-teal-400 focus:outline-none transition-all;
+}
+
+/* Stat badge */
+.stat-badge {
+    @apply inline-flex items-center border border-slate-700 rounded-full text-sm text-slate-400 font-mono;
+    padding-block: calc(var(--spacing) * 2.5);
+    padding-inline: calc(var(--spacing) * 3) 1.2rem;
+}
+
+/* Status badges */
+.status-active {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-900 text-teal-400 border border-teal-800;
+}
+
+.status-preview {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-900/60 text-amber-400 border border-amber-800/60;
+}
+
+.status-ref {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-700 text-slate-300;
+}
+
+.ribbon-building {
+    @apply absolute text-xs font-medium bg-amber-900/80 text-amber-300 py-1 px-8;
+    top: 20px;
+    right: -30px;
+    transform: rotate(45deg);
+}
+
+/* Building card - de-emphasized "not ready" state */
+.card-building {
+    filter: grayscale(100%) sepia(40%) brightness(0.7);
+    cursor: not-allowed;
+}
+
+/* Tech pills */
+.tech-pill {
+    @apply inline-flex items-center px-2 py-1 rounded text-xs font-mono bg-slate-700 text-slate-300;
+}
+
+/* Compact cards (sidebar) */
+.card-compact {
+    @apply bg-slate-800 border border-slate-700 rounded-lg p-4 transition-all duration-300 block hover:border-slate-600 hover:bg-slate-800/80;
+}
+
+/* Tip callout */
+.tip-callout {
+    @apply border-l-2 border-teal-500 pl-4 py-2 text-slate-300;
+}
+
+/* Selection color */
+::selection {
+    @apply bg-teal-400/30 text-white;
+}

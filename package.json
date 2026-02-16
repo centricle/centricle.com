@@ -1,0 +1,29 @@
+{
+  "name": "centricle.com",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/centricle/centricle.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/centricle/centricle.com/issues"
+  },
+  "homepage": "https://github.com/centricle/centricle.com#readme",
+  "description": "",
+  "dependencies": {
+    "@astrojs/netlify": "^6.5",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.17.1",
+    "tailwindcss": "^4.1.18"
+  }
+}

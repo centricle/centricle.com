@@ -1,0 +1,555 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const structuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Kevin Smith",
+  "url": "https://centricle.com",
+  "jobTitle": "Senior Software Engineer",
+  "description": "Senior software engineer specializing in Django, Wagtail, and Python.",
+  "email": "ksmith@centricle.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ocean Pines",
+    "addressRegion": "MD",
+    "addressCountry": "US"
+  },
+  "sameAs": [
+    "https://github.com/centricle",
+    "https://linkedin.com/in/thekevinsmith"
+  ],
+  "knowsAbout": ["Python", "Django", "Wagtail", "WordPress", "JavaScript", "Web Development"]
+});
+---
+
+<BaseLayout
+  title="Kevin Smith – Senior Software Engineer | Django, Wagtail, Python"
+  description="Kevin Smith - Senior software engineer specializing in Django, Wagtail, and Python. 24 years in, still shipping."
+  structuredData={structuredData}
+>
+  <canvas slot="before-nav" id="bg-canvas" class="pointer-events-none hidden md:block" style="position:absolute;top:0;left:0;width:100%;z-index:0;" aria-hidden="true"></canvas>
+
+  <!-- Hero -->
+  <section class="min-h-screen flex items-center pt-20">
+    <div class="max-w-6xl mx-auto px-6 md:py-24">
+      <h1 class="text-5xl md:text-6xl font-bold text-slate-100 mb-6 leading-tight">
+        24 years. Full stack.<br class="hidden md:block" />
+        <span class="text-slate-400">Still shipping.</span>
+      </h1>
+      <p class="text-xl text-slate-400 mb-6 max-w-2xl">
+        I ship products, not status updates. Django/WordPress. Available.
+      </p>
+      <div class="flex flex-wrap gap-3 mb-8">
+        <span class="stat-badge"><svg class="w-4 h-4 inline-block -mt-0.5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>Ocean Pines, MD</span>
+      </div>
+      <a href="#projects" class="btn btn-primary">See the work</a>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-12 border-t border-slate-700/50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-slate-100 mb-8">Projects</h2>
+
+      <div class="lg:grid lg:grid-cols-[1fr_280px] lg:gap-12">
+        <!-- Left column: project subsections -->
+        <div>
+          <!-- Web Apps -->
+          <h3 class="text-lg font-semibold text-slate-400 uppercase tracking-wider mb-2">Web Apps</h3>
+          <p class="text-slate-400 text-sm mb-6">Full-stack applications with auth, real-time data, and AI.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            <a href="https://mileweave.us" target="_blank" rel="noopener" class="card card-link group">
+              <img src="/screenshots/mileweave.webp" alt="Mileweave trip planner interface" width="800" height="545" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
+              <div class="flex items-start justify-between mb-3">
+                <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">Mileweave</h4>
+                <span class="status-active">Active</span>
+              </div>
+              <p class="text-slate-400 text-sm mb-4">Multi-day road trip planner with intelligent day segmentation.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-pill">Google Maps</span>
+                <span class="tech-pill">Supabase</span>
+                <span class="tech-pill">Vite</span>
+                <span class="tech-pill">Tailwind</span>
+              </div>
+            </a>
+
+            <a href="https://picweave.us" target="_blank" rel="noopener" class="card card-link group">
+              <img src="/screenshots/picweave.webp" alt="Picweave photo timeline interface" width="800" height="545" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
+              <div class="flex items-start justify-between mb-3">
+                <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">Picweave</h4>
+                <span class="status-active">Active</span>
+              </div>
+              <p class="text-slate-400 text-sm mb-4">Collaborative photo timeline. Upload photos separately, see them merged by timestamp and location.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-pill">Google Maps</span>
+                <span class="tech-pill">Supabase</span>
+                <span class="tech-pill">Netlify</span>
+                <span class="tech-pill">Vite</span>
+              </div>
+            </a>
+
+            <a href="https://thoughtstream.us" target="_blank" rel="noopener" class="card card-link group">
+              <img src="/screenshots/thoughtstream.webp" alt="Thoughtstream idea capture interface" width="800" height="545" loading="lazy" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
+              <div class="flex items-start justify-between mb-3">
+                <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">Thoughtstream</h4>
+                <span class="status-active">Active</span>
+              </div>
+              <p class="text-slate-400 text-sm mb-4">Voice-powered idea capture. Speak to Siri, review on the web.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-pill">Supabase</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">Netlify</span>
+                <span class="tech-pill">Vite</span>
+              </div>
+            </a>
+
+            <div class="card card-building relative overflow-hidden">
+              <span class="ribbon-building">PAUSED</span>
+              <img src="/screenshots/thoughtframe.webp" alt="Thoughtframe AI thinking partner interface" width="800" height="545" loading="lazy" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
+              <div class="flex items-start justify-between mb-3">
+                <h4 class="text-xl font-semibold text-slate-100">Thoughtframe</h4>
+              </div>
+              <p class="text-slate-400 text-sm mb-4">AI thinking partner. Capture fuzzy thoughts, get the right questions, find clarity.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-pill">Claude API</span>
+                <span class="tech-pill">Supabase</span>
+                <span class="tech-pill">Netlify</span>
+              </div>
+            </div>
+
+            <a href="https://yappyhour.us" target="_blank" rel="noopener" class="card card-link group">
+              <img src="/screenshots/yappyhour.webp" alt="Yappyhour dog park meetup interface" width="800" height="545" loading="lazy" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
+              <div class="flex items-start justify-between mb-3">
+                <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">Yappyhour</h4>
+                <span class="status-preview">Preview</span>
+              </div>
+              <p class="text-slate-400 text-sm mb-4">Dog park event coordination. Find meetups, organize walks, connect with local owners.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-pill">Supabase</span>
+                <span class="tech-pill">PostgreSQL</span>
+                <span class="tech-pill">Netlify</span>
+              </div>
+            </a>
+
+            <a href="https://dipshit.fyi" target="_blank" rel="noopener" class="card card-link group">
+              <img src="/screenshots/dipshit.webp" alt="Dipshit.fyi message sharing interface" width="800" height="545" loading="lazy" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
+              <div class="flex items-start justify-between mb-3">
+                <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">Dipshit</h4>
+                <span class="status-active">Active</span>
+              </div>
+              <p class="text-slate-400 text-sm mb-4">The app that tells you if you're being one.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-pill">Astro</span>
+                <span class="tech-pill">Supabase</span>
+                <span class="tech-pill">TypeScript</span>
+                <span class="tech-pill">Netlify</span>
+              </div>
+            </a>
+
+            <div class="card card-building relative overflow-hidden">
+              <span class="ribbon-building">BUILDING</span>
+              <h4 class="text-xl font-semibold text-slate-100 mb-3">whoami.fyi</h4>
+              <p class="text-slate-400 text-sm mb-4">Identity analysis tool. Paste any text and discover what it reveals about the author.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-pill">Claude API</span>
+                <span class="tech-pill">Astro</span>
+                <span class="tech-pill">TypeScript</span>
+              </div>
+            </div>
+
+            <a href="https://doomscrolling.us" target="_blank" rel="noopener" class="card card-link group">
+              <img src="/screenshots/doomscrolling.webp" alt="Doomscrolling anonymous text sharing interface" width="800" height="545" loading="lazy" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
+              <div class="flex items-start justify-between mb-3">
+                <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">Doomscrolling</h4>
+                <span class="status-active">Active</span>
+              </div>
+              <p class="text-slate-400 text-sm mb-4">Anonymous text sharing. No accounts, no tracking, just words on a page.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-pill">Supabase</span>
+                <span class="tech-pill">PostgreSQL</span>
+                <span class="tech-pill">Vanilla JS</span>
+                <span class="tech-pill">Vite</span>
+                <span class="tech-pill">Netlify</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Reference Sites -->
+          <h3 class="text-lg font-semibold text-slate-400 uppercase tracking-wider mb-2">Reference Sites</h3>
+          <p class="text-slate-400 text-sm mb-6">Spec databases built on Astro and TypeScript.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            <a href="https://cables.fyi" target="_blank" rel="noopener" class="card card-link group">
+              <img src="/screenshots/cables.webp" alt="cables.fyi connector database interface" width="800" height="545" loading="lazy" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
+              <div class="flex items-start justify-between mb-3">
+                <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">cables.fyi</h4>
+                <span class="status-active">Active</span>
+              </div>
+              <p class="text-slate-400 text-sm mb-4">Authoritative database demystifying USB-C, Thunderbolt, and 50+ connector types.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-pill">Astro</span>
+                <span class="tech-pill">TypeScript</span>
+                <span class="tech-pill">Tailwind</span>
+              </div>
+            </a>
+
+            <a href="https://batteries.fyi" target="_blank" rel="noopener" class="card card-link group">
+              <img src="/screenshots/batteries.webp" alt="Batteries.fyi database interface" width="800" height="545" loading="lazy" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
+              <div class="flex items-start justify-between mb-3">
+                <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">batteries.fyi</h4>
+                <span class="status-active">Active</span>
+              </div>
+              <p class="text-slate-400 text-sm mb-4">Complete battery specifications database. Every consumer battery type with dimensions, voltage, and technical data.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-pill">Astro</span>
+                <span class="tech-pill">TypeScript</span>
+              </div>
+            </a>
+
+            <a href="https://fasteners.fyi" target="_blank" rel="noopener" class="card card-link group">
+              <img src="/screenshots/fasteners.webp" alt="Fasteners.fyi specifications database" width="800" height="545" loading="lazy" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
+              <div class="flex items-start justify-between mb-3">
+                <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">fasteners.fyi</h4>
+                <span class="status-active">Active</span>
+              </div>
+              <p class="text-slate-400 text-sm mb-4">Fastener specifications database. Screws, bolts, anchors, and nuts with dimensions and standards.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-pill">Astro</span>
+                <span class="tech-pill">TypeScript</span>
+              </div>
+            </a>
+
+            <a href="https://thepacklife.us" target="_blank" rel="noopener" class="card card-link group">
+              <img src="/screenshots/packlife.webp" alt="The Pack Life breed reference" width="800" height="545" loading="lazy" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
+              <div class="flex items-start justify-between mb-3">
+                <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">The Pack Life</h4>
+                <span class="status-active">Active</span>
+              </div>
+              <p class="text-slate-400 text-sm mb-4">Dog breed reference with voice. 27 breeds with specs, history, and honest notes on what you're getting into.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-pill">Astro</span>
+                <span class="tech-pill">TypeScript</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Content Sites -->
+          <h3 class="text-lg font-semibold text-slate-400 uppercase tracking-wider mb-2">Content Sites</h3>
+          <p class="text-slate-400 text-sm mb-6">Voice-forward guides celebrating things that endure.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 lg:mb-0">
+            <a href="https://iron.fyi" target="_blank" rel="noopener" class="card card-link group">
+              <img src="/screenshots/iron.webp" alt="Iron.fyi vintage vehicle database" width="800" height="545" loading="lazy" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
+              <div class="flex items-start justify-between mb-3">
+                <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">iron.fyi</h4>
+                <span class="status-active">Active</span>
+              </div>
+              <p class="text-slate-400 text-sm mb-4">Vintage vehicle database. 90+ cars, trucks, and motorcycles with specs, history, and valuations.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-pill">Astro</span>
+                <span class="tech-pill">TypeScript</span>
+                <span class="tech-pill">Tailwind</span>
+              </div>
+            </a>
+
+            <div class="card card-building relative overflow-hidden">
+              <span class="ribbon-building">BUILDING</span>
+              <img src="/screenshots/mahogany.webp" alt="Mahogany.fyi wooden boat guide" width="800" height="545" loading="lazy" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
+              <h4 class="text-xl font-semibold text-slate-100 mb-3">mahogany.fyi</h4>
+              <p class="text-slate-400 text-sm mb-4">Wooden boat guide. Chris-Crafts, runabouts, and the craft of wooden boatbuilding.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-pill">Astro</span>
+                <span class="tech-pill">TypeScript</span>
+              </div>
+            </div>
+
+            <a href="https://wings.fyi" target="_blank" rel="noopener" class="card card-link group">
+              <img src="/screenshots/wings.webp" alt="Wings.fyi aviation database" width="800" height="545" loading="lazy" class="w-full h-40 object-cover object-top rounded-lg mb-4" />
+              <div class="flex items-start justify-between mb-3">
+                <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">wings.fyi</h4>
+                <span class="status-active">Active</span>
+              </div>
+              <p class="text-slate-400 text-sm mb-4">Aviation database. Warbirds, spacecraft, and the machines that earned their wings.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="tech-pill">Astro</span>
+                <span class="tech-pill">TypeScript</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Mobile-only: Tools & Extensions -->
+          <div class="lg:hidden">
+            <h3 class="text-lg font-semibold text-slate-400 uppercase tracking-wider mb-2">Tools & Extensions</h3>
+            <p class="text-slate-400 text-sm mb-6">Browser extensions and CLI utilities that remove friction.</p>
+            <div class="space-y-4 mb-16">
+              <a href="https://chromewebstore.google.com/detail/liberator/fhmmgchnebgmlplmpilgjakljjgookng" target="_blank" rel="noopener" class="card card-link group">
+                <div class="flex items-center gap-2 mb-2">
+                  <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">Liberator</h4>
+                  <span class="tech-pill">Chrome</span>
+                </div>
+                <p class="text-slate-400 text-sm">Extracts metadata from YouTube videos.</p>
+              </a>
+
+              <a href="https://github.com/centricle/rtfm" target="_blank" rel="noopener" class="card card-link group">
+                <div class="flex items-center gap-2 mb-2">
+                  <h4 class="text-xl font-semibold font-mono text-slate-100 group-hover:text-teal-400 transition-colors">rtfm</h4>
+                  <span class="tech-pill">CLI</span>
+                </div>
+                <p class="text-slate-400 text-sm">Local documentation search across project docs.</p>
+              </a>
+
+              <a href="https://github.com/centricle/dipship" target="_blank" rel="noopener" class="card card-link group">
+                <div class="flex items-center gap-2 mb-2">
+                  <h4 class="text-xl font-semibold font-mono text-slate-100 group-hover:text-teal-400 transition-colors">dipship</h4>
+                  <span class="tech-pill">CLI</span>
+                </div>
+                <p class="text-slate-400 text-sm">Git deployment shortcut.</p>
+              </a>
+
+              <a href="https://chromewebstore.google.com/detail/nuke/jffpcdpgmjgdmnkihichojlnldpmafae" target="_blank" rel="noopener" class="card card-link group">
+                <div class="flex items-center gap-2 mb-2">
+                  <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">Nuke</h4>
+                  <span class="tech-pill">Chrome</span>
+                </div>
+                <p class="text-slate-400 text-sm">One-click cache and cookie clearing.</p>
+              </a>
+
+              <a href="https://github.com/centricle/arcweave" target="_blank" rel="noopener" class="card card-link group">
+                <div class="flex items-center gap-2 mb-2">
+                  <h4 class="text-xl font-semibold font-mono text-slate-100 group-hover:text-teal-400 transition-colors">arcweave</h4>
+                  <span class="tech-pill">CLI</span>
+                </div>
+                <p class="text-slate-400 text-sm">Text config → SVG line chart generator.</p>
+              </a>
+
+              <a href="https://github.com/centricle/whyis" target="_blank" rel="noopener" class="card card-link group">
+                <div class="flex items-center gap-2 mb-2">
+                  <h4 class="text-xl font-semibold font-mono text-slate-100 group-hover:text-teal-400 transition-colors">whyis</h4>
+                  <span class="tech-pill">CLI</span>
+                </div>
+                <p class="text-slate-400 text-sm">CLI etymology reference.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop sidebar -->
+        <aside class="hidden lg:block">
+          <div class="space-y-10">
+            <!-- The Workbench -->
+            <div>
+              <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">The Workbench</h3>
+              <div class="space-y-3">
+                <a href="https://chromewebstore.google.com/detail/liberator/fhmmgchnebgmlplmpilgjakljjgookng" target="_blank" rel="noopener" class="card-compact group">
+                  <div class="flex items-center justify-between mb-1">
+                    <h4 class="text-sm font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">Liberator</h4>
+                    <span class="tech-pill">Chrome</span>
+                  </div>
+                  <p class="text-slate-400 text-xs leading-snug">Extracts metadata from YouTube videos.</p>
+                </a>
+
+                <a href="https://github.com/centricle/rtfm" target="_blank" rel="noopener" class="card-compact group">
+                  <div class="flex items-center justify-between mb-1">
+                    <h4 class="text-sm font-semibold font-mono text-slate-100 group-hover:text-teal-400 transition-colors">rtfm</h4>
+                    <span class="tech-pill">CLI</span>
+                  </div>
+                  <p class="text-slate-400 text-xs leading-snug">Local documentation search across project docs.</p>
+                </a>
+
+                <a href="https://github.com/centricle/dipship" target="_blank" rel="noopener" class="card-compact group">
+                  <div class="flex items-center justify-between mb-1">
+                    <h4 class="text-sm font-semibold font-mono text-slate-100 group-hover:text-teal-400 transition-colors">dipship</h4>
+                    <span class="tech-pill">CLI</span>
+                  </div>
+                  <p class="text-slate-400 text-xs leading-snug">Git deployment shortcut.</p>
+                </a>
+
+                <a href="https://chromewebstore.google.com/detail/nuke/jffpcdpgmjgdmnkihichojlnldpmafae" target="_blank" rel="noopener" class="card-compact group">
+                  <div class="flex items-center justify-between mb-1">
+                    <h4 class="text-sm font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">Nuke</h4>
+                    <span class="tech-pill">Chrome</span>
+                  </div>
+                  <p class="text-slate-400 text-xs leading-snug">One-click cache and cookie clearing.</p>
+                </a>
+
+                <a href="https://github.com/centricle/arcweave" target="_blank" rel="noopener" class="card-compact group">
+                  <div class="flex items-center justify-between mb-1">
+                    <h4 class="text-sm font-semibold font-mono text-slate-100 group-hover:text-teal-400 transition-colors">arcweave</h4>
+                    <span class="tech-pill">CLI</span>
+                  </div>
+                  <p class="text-slate-400 text-xs leading-snug">Text config → SVG line chart generator.</p>
+                </a>
+
+                <a href="https://github.com/centricle/whyis" target="_blank" rel="noopener" class="card-compact group">
+                  <div class="flex items-center justify-between mb-1">
+                    <h4 class="text-sm font-semibold font-mono text-slate-100 group-hover:text-teal-400 transition-colors">whyis</h4>
+                    <span class="tech-pill">CLI</span>
+                  </div>
+                  <p class="text-slate-400 text-xs leading-snug">CLI etymology reference.</p>
+                </a>
+              </div>
+            </div>
+
+            <!-- The Sidekick -->
+            <div>
+              <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">The Sidekick</h3>
+              <div class="rounded-lg border border-amber-800/40 bg-slate-800/60 p-4">
+                <img src="/frankie.webp" alt="Frankie the Border Collie" title="This is Frankie. Total PITA, but 100% worth it." width="1200" height="1200" loading="lazy" class="aspect-square rounded-lg object-cover mb-4" />
+                <p class="text-slate-300 text-sm leading-relaxed">
+                  Chief Morale Officer and walking alarm clock.
+                </p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Work -->
+  <section class="py-12 border-t border-slate-700/50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-slate-100 mb-8">Client Work</h2>
+      <div class="space-y-6">
+        <a href="https://247wallst.com" target="_blank" rel="noopener" class="card card-link group">
+          <div class="flex items-start justify-between mb-3">
+            <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">247wallst</h4>
+            <span class="status-active">Current</span>
+          </div>
+          <p class="text-slate-400 text-sm mb-4">Custom WordPress for a high-traffic financial news site. Theme, live blog tooling, real-time stock charts. Publishing under deadline pressure.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="tech-pill">WordPress</span>
+            <span class="tech-pill">Tailwind</span>
+            <span class="tech-pill">PHP</span>
+          </div>
+        </a>
+
+        <a href="https://muckrack.com" target="_blank" rel="noopener" class="card card-link group">
+          <div class="flex items-start justify-between mb-3">
+            <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">Muck Rack</h4>
+            <span class="status-ref">2023–2025</span>
+          </div>
+          <p class="text-slate-400 text-sm mb-4">Marketing engineering with Wagtail and Django. Full stack work on the public-facing site.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="tech-pill">Django</span>
+            <span class="tech-pill">Wagtail</span>
+            <span class="tech-pill">Python</span>
+          </div>
+        </a>
+
+        <a href="https://fool.com" target="_blank" rel="noopener" class="card card-link group">
+          <div class="flex items-start justify-between mb-3">
+            <h4 class="text-xl font-semibold text-slate-100 group-hover:text-teal-400 transition-colors">Motley Fool</h4>
+            <span class="status-ref">2006–2023</span>
+          </div>
+          <p class="text-slate-400 text-sm mb-4">17 years building the systems behind fool.com. CMS infrastructure, SEO tooling, lead gen platforms that drove $100M in revenue.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="tech-pill">Django</span>
+            <span class="tech-pill">Wagtail</span>
+            <span class="tech-pill">Python</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="py-12 border-t border-slate-700/50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-slate-100 mb-8">Background</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <p class="text-slate-400 mb-6">
+            I've been building for the web since tables were for layout. Along the way: a FEMA contract building an accessibility-focused GIS application, 17 years at Motley Fool, and marketing engineering at Muck Rack.
+          </p>
+          <p class="text-slate-400">
+            I know what works at scale, and I still get excited about building things.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-slate-100 mb-4">Primary stack</h3>
+          <p class="text-slate-400 mb-6">Python, Django, Wagtail</p>
+
+          <h3 class="text-lg font-semibold text-slate-100 mb-4">Also fluent in</h3>
+          <p class="text-slate-400 mb-6">WordPress (themes, plugins, editorial workflows)</p>
+
+          <h3 class="text-lg font-semibold text-slate-100 mb-4">How I work</h3>
+          <p class="text-slate-400">Remote, async-first, minimal meetings. I ship code, not status updates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile-only: The Sidekick -->
+  <section class="py-12 lg:hidden">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-slate-100 mb-6">The Sidekick</h2>
+      <div class="rounded-lg border border-amber-800/40 bg-slate-800/60 p-6 max-w-sm">
+        <img src="/frankie.webp" alt="Frankie the Border Collie" title="This is Frankie. Total PITA, but 100% worth it." width="1200" height="1200" loading="lazy" class="aspect-square rounded-lg object-cover mb-4" />
+        <p class="text-slate-300 leading-relaxed">
+          Chief Morale Officer and walking alarm clock.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="py-12 border-t border-slate-700/50" id="contact">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-slate-100 mb-4">Have a project?</h2>
+      <p class="text-slate-400 mb-8">I typically respond within a day.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <form class="space-y-6" name="contact" method="POST" data-netlify="true">
+          <div>
+            <label for="name-input" class="block text-sm font-medium text-slate-400 mb-2">Name</label>
+            <input
+              id="name-input"
+              name="name"
+              type="text"
+              class="form-input"
+              required
+            />
+          </div>
+          <div>
+            <label for="email-input" class="block text-sm font-medium text-slate-400 mb-2">Email</label>
+            <input
+              id="email-input"
+              name="email"
+              type="email"
+              class="form-input"
+              required
+            />
+          </div>
+          <div>
+            <label for="message-textarea" class="block text-sm font-medium text-slate-400 mb-2">Message</label>
+            <textarea
+              id="message-textarea"
+              name="message"
+              rows="4"
+              class="form-input resize-y"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send message</button>
+        </form>
+
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-lg font-semibold text-slate-100 mb-2">Email</h3>
+            <a href="mailto:ksmith@centricle.com" class="text-teal-400 hover:underline">ksmith@centricle.com</a>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-slate-100 mb-2">GitHub</h3>
+            <a href="https://github.com/centricle" target="_blank" rel="noopener" class="text-teal-400 hover:underline">github.com/centricle</a>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-slate-100 mb-2">LinkedIn</h3>
+            <a href="https://linkedin.com/in/thekevinsmith" target="_blank" rel="noopener" class="text-teal-400 hover:underline">linkedin.com/in/thekevinsmith</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="../scripts/background-canvas.js"></script>
+</BaseLayout>

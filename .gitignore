@@ -1,0 +1,37 @@
+# Build output
+dist/
+.astro/
+
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.*
+
+# Netlify
+.netlify/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Playwright screenshots (MCP)
+.playwright-mcp/
+
+# Project docs (gitignored per portfolio standard)
+CLAUDE.md
+ROADMAP.md
+HANDOFF.md
+
+# One-off artifacts
+logo-preview.html
+centricle-*.png
+constellation-*.png
+dna-*.png
+*.zip
+*.log
+lighthouse-report.*
