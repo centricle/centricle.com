@@ -9,7 +9,6 @@ Django, Wagtail, Python. WordPress when it's the right tool. Available for contr
 | | |
 |---|---|
 | [iron.fyi](https://iron.fyi) | Vintage vehicles reference guide |
-| [boots.fyi](https://boots.fyi) | Heritage footwear guide |
 | [batteries.fyi](https://batteries.fyi) | Consumer battery specs database |
 | [cables.fyi](https://cables.fyi) | Cable and connector reference |
 | [fasteners.fyi](https://fasteners.fyi) | Fastener specs and standards |
